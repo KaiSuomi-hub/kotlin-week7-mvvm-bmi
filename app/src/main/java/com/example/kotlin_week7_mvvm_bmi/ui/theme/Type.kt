@@ -1,4 +1,4 @@
-package com.example.viikko2_in00ct07_3007.ui.theme
+package com.example.kotlin_week7_mvvm_bmi.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

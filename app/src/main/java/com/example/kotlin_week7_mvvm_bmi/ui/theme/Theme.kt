@@ -1,5 +1,5 @@
-package com.example.viikko2_in00ct07_3007.ui.theme
-import androidx.compose.ui.graphics.Color
+package com.example.kotlin_week7_mvvm_bmi.ui.theme
+
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -20,7 +20,9 @@ private val DarkColorScheme = darkColorScheme(
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40,
+    tertiary = Pink40
+
+    /* Other default colors to override
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
@@ -28,10 +30,11 @@ private val LightColorScheme = lightColorScheme(
     onTertiary = Color.White,
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
+    */
 )
 
 @Composable
-fun Viikko2IN00CT073007Theme(
+fun Kotlinweek7mvvmbmiTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

@@ -1,4 +1,4 @@
-package com.example.viikko2_in00ct07_3007
+package com.example.kotlin_week7_mvvm_bmi
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.viikko2_in00ct07_3007", appContext.packageName)
+        assertEquals("com.example.kotlin_week7_mvvm_bmi", appContext.packageName)
     }
 }

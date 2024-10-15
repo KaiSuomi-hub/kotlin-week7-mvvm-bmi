@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "viikko2-IN00CT07-3007"
+rootProject.name = "kotlin-week7-mvvm-bmi"
 include(":app")
  
