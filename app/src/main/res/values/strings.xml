@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">viikko2-IN00CT07-3007</string>
+    <string name="bmi_calculator">Body Mass Index</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="result">%s</string>
+
+</resources>
