@@ -1,47 +1,40 @@
-package com.example.kotlin_week7_mvvm_bmi
+package com.example.kotlin_week7_mvvm_bmi.view
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.kotlin_week7_mvvm_bmi.ui.theme.Kotlinweek7mvvmbmiTheme
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.example.kotlin_week7_mvvm_bmi.databinding.ActivityMainBinding
 
-class MainActivity : ComponentActivity() {
+import com.example.kotlin_week7_mvvm_bmi.BMIModel
+import com.example.kotlin_week7_mvvm_bmi.BMIViewModel
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private val viewModel: BMIViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Kotlinweek7mvvmbmiTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+
+        // Initialize view binding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Observe LiveData from ViewModel
+        viewModel.bmiResult.observe(this, Observer { bmi ->
+            binding.textViewBmiResult.text = String.format("BMI: %.2f", bmi)
+        })
+
+        viewModel.bmiCategory.observe(this, Observer { category ->
+            binding.textViewBmiCategory.text = "Category: $category"
+        })
+
+        // Handle button click for BMI calculation
+        binding.buttonCalculate.setOnClickListener {
+            val weight = binding.editTextWeight.text.toString()
+            val height = binding.editTextHeight.text.toString()
+            viewModel.calculateBMI(weight, height)
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Kotlinweek7mvvmbmiTheme {
-        Greeting("Android")
     }
 }
